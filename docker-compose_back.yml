@@ -13,9 +13,9 @@ services:
     networks:
       - app-network
 
-  blog-nest:
-    image: blog-nest-image:latest
-    container_name: blog-nest-container
+  blog-node:
+    image: blog-node-image:latest
+    container_name: blog-node-container
     volumes:
       - ./data/assets:/usr/src/app/assets
     ports:
@@ -25,13 +25,10 @@ services:
     networks:
       - app-network
     environment:
-      APP_PORT: 3000
-      JWT_SALT: NEST
-      MYSQL_HOST: mysql
-      MYSQL_PORT: 3306
-      MYSQL_USER_NAME: root
-      MYSQL_PASSWORD: 15896302145.saA
-      MYSQL_DATABASE: blog
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: 15896302145.saA
+      DB_NAME: blog
 
   template-node:
     image: template-node-image:latest

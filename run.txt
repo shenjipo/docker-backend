@@ -1,0 +1,6 @@
+docker-compose down
+docker rmi blog-nest-image
+docker image prune
+docker load -i blog-nest-image.tar
+docker-compose up
+docker images
