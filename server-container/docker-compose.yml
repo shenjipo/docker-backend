@@ -48,6 +48,21 @@ services:
       DB_PASSWORD: 15896302145.saA
       DB_NAME: blog
 
+  workbench-node:
+    image: workbench-node-image:latest
+    container_name: workbench-node-container
+    ports:
+      - "3002:3000"
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: 15896302145.saA
+      DB_NAME: blog
+
 networks:
   app-network:
     driver: bridge
